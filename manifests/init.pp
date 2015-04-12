@@ -28,10 +28,13 @@
 # Copyright 2014 Kris Buytaert, unless otherwise noted.
 #
 class consul_template (
-  $consul_host = '127.0.0.1',
-  $consul_port = '8500',
+  $consul_host    = '127.0.0.1',
+  $consul_port    = '8500',
+  $download_url   = undef,
+  $bin_dir        = '/usr/local/bin',
+  $install_method = 'package',
 ) {
-  include consul_template::package
+  include consul_template::install
   include consul_template::config
   include consul_template::service
 }
